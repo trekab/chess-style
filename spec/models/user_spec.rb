@@ -2,19 +2,20 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
+	let(:user) { User.new(name: 'JohnDoe')}
+
   it "is valid with a name" do
-  	user = User.new(name: "JohnDoe")
   	expect(user).to be_valid
   end
 
 	it "is invalid without a name" do
-		user = User.new(name: nil)
+		user.name = nil
 		user.valid?
 		expect(user.errors[:name]).to include("can't be blank")
 	end
 
 	it "does not allow duplicate user names" do
-		user = User.create( name: "JohnDoe")
+		user.save
 		user_2 = User.create( name: "JohnDoe")
 		user_2.valid?
 		expect(user_2.errors[:name]).to include("has already been taken")
