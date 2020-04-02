@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     if user
       session[:user_id] = user.id
       # flash[:success] = "You have successfully logged in"
-      redirect_to pages_home_path
+      redirect_to root_path
     else
       # flash.now[:danger] = "There was something wrong with your login information"
       render 'new'
