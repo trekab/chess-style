@@ -1,3 +1,20 @@
 <h1>Home Page</h1>
 <h2>Featured Article</h2>
-<%= @featured_article.inspect %>
+<p>
+	<%= @featured_article.title %>
+</p>
+<em>
+	<%= @featured_article.image %>
+</em>
+
+<% @categories.each do |category| %>
+	<h3>
+		<%= category.name %>
+	</h3>
+	<p>
+		<%= category.articles.last.title %>
+	</p>
+	<em>
+		<%= category.articles.last.image %>
+	</em>
+<% end %>
