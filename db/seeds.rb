@@ -6,23 +6,23 @@ User.create!(name: 'Ned')
 
 Article.create!(title: "Arya's first article", 
 				text: "ValarmogulisValarmogulisValarmogulis", 
-				image: "ValarmogulisValarmogulisValarmogulis",
+				image: "http://placehold.it/350x200",
 				user_id: "1")
 Article.create!(title: "Snow's first article", 
 				text: "ValarmogulisValarmogulisValarmogulis", 
-				image: "ValarmogulisValarmogulisValarmogulis",
+				image: "http://placehold.it/350x200",
 				user_id: "2")
 Article.create!(title: "Sansa's first article", 
 				text: "ValarmogulisValarmogulisValarmogulis", 
-				image: "ValarmogulisValarmogulisValarmogulis",
+				image: "http://placehold.it/350x200",
 				user_id: "3")
 Article.create!(title: "Brandon's first article", 
 				text: "ValarmogulisValarmogulisValarmogulis", 
-				image: "ValarmogulisValarmogulisValarmogulis",
+				image: "http://placehold.it/350x200",
 				user_id: "4")
 Article.create!(title: "Brandon's first article", 
 				text: "ValarmogulisValarmogulisValarmogulis", 
-				image: "ValarmogulisValarmogulisValarmogulis",
+				image: "http://placehold.it/350x200",
 				user_id: "5")
 
 Vote.create!(user_id: 2, article_id: 1)

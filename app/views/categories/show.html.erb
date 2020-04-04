@@ -1,7 +1,9 @@
-<h1>Categories Show Page</h1>
+<h1 align="center">
+	<%= @category.name %> Articles
+</h1>
 <% @articles.each do |article| %>
 	<p>
-		<%= article.image %>
+		<%= image_tag article.image %>
 	</p>
 	<h3>
 		<%= article.title %>
