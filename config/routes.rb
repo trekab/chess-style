@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   get 'category/:id', to: 'categories#show', as: 'category'
   get 'create-article', to: 'articles#new'
+  post 'create-article', to: 'articles#create'
 end

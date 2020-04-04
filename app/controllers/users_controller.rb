@@ -6,8 +6,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      flash[:success] = "You have successfully created your account"
       redirect_to pages_home_path
     else
+      flash.now[:danger] = "There was something wrong with your sign up information"
       render 'new'
     end
   end
