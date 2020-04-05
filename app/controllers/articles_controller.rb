@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+	before_action :require_user, except: [:index]
   def index
   	@featured_article = Article.featured_article
   	@categories = Category.all.order(:priority).reverse_order
