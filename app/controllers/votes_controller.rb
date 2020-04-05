@@ -5,9 +5,11 @@ class VotesController < ApplicationController
     @vote = current_user.votes.new(article_id: params[:article_id])
 
     if @vote.save
-      redirect_back fallback_location: root_path, notice: 'You voted an article.'
+      flash[:success] = 'You voted an article.'
+      redirect_back fallback_location: root_path
     else
-      redirect_back fallback_location: root_path, alert: 'You cannot vote this article.'
+      flash[:danger] = 'You cannot vote this article.'
+      redirect_back fallback_location: root_path
     end
   end
 
@@ -15,9 +17,11 @@ class VotesController < ApplicationController
     vote = Vote.find_by(id: params[:id], user: current_user, article_id: params[:article_id])
     if vote
       vote.destroy
-      redirect_back fallback_location: root_path, notice: 'You unvoted an article.'
+      flash[:success] = 'You unvoted an article.'
+      redirect_back fallback_location: root_path
     else
-      redirect_back fallback_location: root_path, alert: 'You cannot unvoted an article that you did not vote before.'
+      flash[:danger] = 'You cannot unvoted an article that you did not vote before.'
+      redirect_back fallback_location: root_path
     end
   end
 end
