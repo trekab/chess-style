@@ -6,6 +6,9 @@
 <em>
 	<%= image_tag @featured_article.image %>
 </em>
+<span>
+	<%= vote_or_unvote_btn(@featured_article) %>
+</span>
 <hr>
 <% @categories.each do |category| %>
 	<h3>
@@ -17,4 +20,7 @@
 	<em>
 		<%= image_tag category.articles.last.image %>
 	</em>
+	<span>
+		<%= vote_or_unvote_btn(category.articles.last) %>
+	</span>
 <% end %>

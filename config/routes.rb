@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get 'category/:id', to: 'categories#show', as: 'category'
   get 'create-article', to: 'articles#new'
   post 'create-article', to: 'articles#create'
+  resources :votes, only: [:create, :destroy]
 end

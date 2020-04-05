@@ -7,12 +7,12 @@ class Article < ApplicationRecord
   has_many :votes
 
   def self.featured_article
-  	article_votes = {}
-  	articles = Article.all
-  	articles.each do |article|
-  		article_votes[article] = article.votes.count
-  	end
-  	most_votes = article_votes.values.max
-  	article_votes.keys.first if article_votes.values.max == most_votes
+    article_votes = {}
+    articles = Article.all
+    articles.each do |article|
+      article_votes[article] = article.votes.count
+    end
+    most_votes = article_votes.values.max
+    article_votes.keys.first if article_votes.values.max == most_votes
   end
 end
