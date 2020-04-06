@@ -2,19 +2,25 @@
 	<%= @category.name %> Articles
 </h1>
 <% @articles.each do |article| %>
-	<p>
-		<%= image_tag article.image %>
-	</p>
-	<h3>
-		<%= article.title %>
-	</h3>
-	<p>
-		<%= article.text %>
-	</p>
-	<p>
-		<%= article.author.name %>
-	</p>
-	<span>
-		<%= vote_or_unvote_btn(article) %>
-	</span>
+	<div class="d-flex">
+		<div class="text-center">
+			<%= image_tag article.image, width: 400 if article.image.attached? %>
+		</div>
+		<div>
+			<h3>
+				<%= article.title %>
+			</h3>
+			<p>
+				<%= article.text %>
+			</p>
+			<span class="badge badge-primary">
+				Author: <%= article.author.name %>
+			</span>
+			<span class="badge badge-warning">
+				<%= vote_or_unvote_btn(article) %>
+			</span>
+		</div>		
+	</div>
+
+	
 <% end %>
