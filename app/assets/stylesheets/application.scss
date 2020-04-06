@@ -1,1 +1,27 @@
 @import "bootstrap";
+
+body {
+	background: #996633;
+}
+.featured_title {
+	position: relative;
+	top: 90%;
+	left: 3%;
+	h5 {
+		color: #ff6600;
+	}
+}
+
+a:hover {
+	text-decoration: none;
+	color: #ff6600 !important;
+}
+
+.article-title {
+	position: relative;
+	top: 100px;
+	left: 5px;
+	p {
+		text-shadow: 2px 1px black;
+	}
+}

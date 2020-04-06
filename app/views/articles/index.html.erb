@@ -1,24 +1,30 @@
 
-<div class="jumbotron jumbotron-fluid text-center align-items-center"
-     style="background-image: url('<%= url_for(@featured_article.image) if @featured_article.image.attached? %>');">
-  <div>
-    <h1><%= @featured_article.title %></h1>
+<div style="background-image: url('<%= url_for(@featured_article.image) if @featured_article.image.attached? %>');
+						height: 70vh;
+						background-size: cover; 
+    				background-repeat: no-repeat;
+    				background-position: center center;">
+  <div class="featured_title">
+    <h5><%= @featured_article.title %></h5>
   </div>
 </div>
 
 
-<div class="d-flex">
+<div class="d-flex" style="height: 20vh;">
 
 	<% @categories.each do |category| %>
 	<% unless category.articles.last.nil? %>
-		<div class="card"
+		<div class="card vh-30"
 		     style="background-image: url('<%= url_for(category.articles.last.image) if category.articles.last.image.attached? %>');
-		     	 width: 18rem;">
+		     	 width: 18rem;
+		     	 background-size: cover; 
+  				 background-repeat: no-repeat;
+  				 background-position: center center;">
 		  <div>
-		    <h3><%= link_to category.name, category_path(category) %></h3>
+		    <h5 class="m-1"><%= link_to category.name, category_path(category), class: "text-white" %></h5>
 		  </div>
-		  <div>
-		    <p><%= category.articles.last.title %></p>
+		  <div class="article-title">
+		    <p class="text-white"><%= category.articles.last.title %></p>
 		  </div>
 		</div>
 	<% end %>
