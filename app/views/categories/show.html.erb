@@ -20,6 +20,15 @@
 			<span class="badge badge-warning">
 				<%= vote_or_unvote_btn(article) %>
 			</span>
+			<% if logged_in? && (current_user == article.author || current_user.admin?) %>
+				<span class="badge badge-warning">
+					<%= link_to 'Edit', edit_article_path(article) %>
+				</span>
+				<span class="badge badge-warning">
+					<%= link_to 'Delete', article_path(article), method: :delete,
+											data: { confirm: "Are you sure you want to delete the article?"} %>
+				</span>
+			<% end %>
 		</div>	
 	</div>
 	
