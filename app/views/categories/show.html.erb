@@ -3,22 +3,25 @@
 </h1>
 <div class="d-flex w-100 flex-wrap vh-100 align-content-start">
 <% @articles.each do |article| %>
-	<div class="w-25">
-		<%= image_tag article.image, class: "w-100 p-1" if article.image.attached? %>
+	<div class="d-flex w-25 pb-1">
+		<div class="w-50">
+			<%= image_tag article.image, class: "w-100 h-100" if article.image.attached? %>
+		</div>
+		<div class="w-50 bg-light">
+			<h5>
+				<%= article.title %>
+			</h5>
+			<div class="p-0">
+				<%= truncate(article.text, length: 20) %>
+			</div>
+			<span class="badge badge-primary">
+				Author: <%= article.author.name %>
+			</span>
+			<span class="badge badge-warning">
+				<%= vote_or_unvote_btn(article) %>
+			</span>
+		</div>	
 	</div>
-	<div class="w-25">
-		<h5>
-			<%= article.title %>
-		</h5>
-		<p>
-			<%= truncate(article.text, length: 65) %>
-		</p>
-		<span class="badge badge-primary">
-			Author: <%= article.author.name %>
-		</span>
-		<span class="badge badge-warning">
-			<%= vote_or_unvote_btn(article) %>
-		</span>
-	</div>	
+	
 <% end %>
 </div>
