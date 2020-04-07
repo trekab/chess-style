@@ -10,7 +10,7 @@ class Article < ApplicationRecord
   def self.featured_article
     max_votes = 0
     result = Article.new
-    articles = Article.all
+    articles = Article.all.includes(:votes)
     articles.each do |article|
       if article.votes.count > max_votes
         max_votes = article.votes.count
