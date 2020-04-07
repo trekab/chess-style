@@ -6,11 +6,10 @@ class VotesController < ApplicationController
 
     if @vote.save
       flash[:success] = 'You voted an article.'
-      redirect_back fallback_location: root_path
     else
       flash[:danger] = 'You cannot vote this article.'
-      redirect_back fallback_location: root_path
     end
+    redirect_back fallback_location: root_path
   end
 
   def destroy
@@ -18,10 +17,9 @@ class VotesController < ApplicationController
     if vote
       vote.destroy
       flash[:success] = 'You unvoted an article.'
-      redirect_back fallback_location: root_path
     else
       flash[:danger] = 'You cannot unvoted an article that you did not vote before.'
-      redirect_back fallback_location: root_path
     end
+    redirect_back fallback_location: root_path
   end
 end

@@ -5,11 +5,10 @@ RSpec.describe Article, type: :model do
 
   let(:article) do
     user.articles.build(title: 'Test Article',
-                        text: 'This is a test article!!!',
-                        image: 'image_link_for_test_article')
+                        text: 'This is a test article!!!')
   end
 
-  it 'is valid with a title, text, image' do
+  it 'is valid with a title, text' do
     expect(article).to be_valid
   end
 
@@ -25,12 +24,6 @@ RSpec.describe Article, type: :model do
     expect(article.errors[:text]).to include("can't be blank")
   end
 
-  it 'is invalid without a text' do
-    article.image = nil
-    article.valid?
-    expect(article.errors[:image]).to include("can't be blank")
-  end
-
   it 'does not allow title less than 6 characters' do
     article.title = 'test'
     article.valid?
@@ -41,12 +34,6 @@ RSpec.describe Article, type: :model do
     article.text = 'test'
     article.valid?
     expect(article.errors[:text]).to include('is too short (minimum is 6 characters)')
-  end
-
-  it 'does not allow image link less than 6 characters' do
-    article.image = 'test'
-    article.valid?
-    expect(article.errors[:image]).to include('is too short (minimum is 6 characters)')
   end
 
   describe 'Associations' do

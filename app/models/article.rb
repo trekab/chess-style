@@ -13,7 +13,7 @@ class Article < ApplicationRecord
     articles = Article.all
     articles.each do |article|
       if article.votes.count > max_votes
-        max_votes = article.votes.count 
+        max_votes = article.votes.count
         result = article
       end
     end

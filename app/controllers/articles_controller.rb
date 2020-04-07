@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:edit, :update, :destroy]
+  before_action :set_article, only: %i[edit update destroy]
   before_action :require_user, except: [:index]
-  before_action :require_same_user, only: [:edit, :update, :destroy]
+  before_action :require_same_user, only: %i[edit update destroy]
 
   def index
     @featured_article = Article.featured_article
@@ -23,13 +23,11 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def edit
-    
-  end
+  def edit; end
 
   def update
     if @article.update(article_params)
-      flash[:success] = "Article was successfully updated"
+      flash[:success] = 'Article was successfully updated'
       redirect_to root_path
     else
       render 'edit'
@@ -38,24 +36,24 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
-    flash[:danger] = "Article was successfully deleted"
+    flash[:danger] = 'Article was successfully deleted'
     redirect_to root_path
   end
 
   private
 
-    def set_article
-      @article = Article.find(params[:id])
-    end
+  def set_article
+    @article = Article.find(params[:id])
+  end
 
-    def article_params
-      params.require(:article).permit(:title, :text, :image, category_ids: [])
-    end
+  def article_params
+    params.require(:article).permit(:title, :text, :image, category_ids: [])
+  end
 
-    def require_same_user
-      if current_user != @article.author && !current_user.admin?
-        flash[:danger] = 'You can only edit or delete your own article'
-        redirect_to root_path
-      end
-    end
+  def require_same_user
+    return unless current_user == @article.author && current_user.admin?
+
+    flash[:danger] = 'You can only edit or delete your own article'
+    redirect_to root_path
+  end
 end
