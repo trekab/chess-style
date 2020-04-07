@@ -1,9 +1,5 @@
 
-<div style="background-image: url('<%= url_for(@featured_article.image) if @featured_article.image.attached? %>');
-						height: 70vh;
-						background-size: cover; 
-    				background-repeat: no-repeat;
-    				background-position: center center;">
+<div class="featured" style="background-image: url('<%= url_for(@featured_article.image) if @featured_article.image.attached? %>');"  >
   <div class="featured_title">
     <h5><%= @featured_article.title %></h5>
   </div>
@@ -14,12 +10,8 @@
 
 	<% @categories.each do |category| %>
 	<% unless category.articles.last.nil? %>
-		<div class="card vh-30"
-		     style="background-image: url('<%= url_for(category.articles.last.image) if category.articles.last.image.attached? %>');
-		     	 width: 18rem;
-		     	 background-size: cover; 
-  				 background-repeat: no-repeat;
-  				 background-position: center center;">
+		<div class="card vh-30 categories"
+		     style="background-image: url('<%= url_for(category.articles.last.image) if category.articles.last.image.attached? %>');">
 		  <div>
 		    <h5 class="m-1"><%= link_to category.name, category_path(category), class: "text-white" %></h5>
 		  </div>

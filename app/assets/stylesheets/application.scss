@@ -3,6 +3,8 @@
 
 body {
 	background: #d9b38c;
+	font-family: san-serif;
+	font-size: 16px;
 }
 .featured_title {
 	position: relative;
@@ -31,3 +33,20 @@ footer {
 	height: 2.5rem;
 }
 
+.featured {
+	height: 70vh;
+	background-size: cover; 
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.categories {
+	width: 18rem;
+ 	background-size: cover; 
+ 	background-repeat: no-repeat;
+ 	background-position: center center;
+}
+
+.category-title {
+	text-align: center;
+}
