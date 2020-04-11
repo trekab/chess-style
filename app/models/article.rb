@@ -1,7 +1,7 @@
 class Article < ApplicationRecord
   validates_presence_of :title, :text, :image
   validates :title, :text, length: { minimum: 6 }
-  belongs_to :author, class_name: 'User', foreign_key: 'user_id'
+  belongs_to :author, class_name: 'User'
   has_many :article_categories
   has_many :categories, through: :article_categories, dependent: :destroy
   has_many :votes
