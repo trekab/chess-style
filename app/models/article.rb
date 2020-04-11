@@ -6,6 +6,8 @@ class Article < ApplicationRecord
   has_many :categories, through: :article_categories, dependent: :destroy
   has_many :votes
   has_one_attached :image
+  validate :image_type
+  validates_presence_of :categories
 
   def self.featured_article
     max_votes = 0
@@ -18,5 +20,13 @@ class Article < ApplicationRecord
       end
     end
     result
+  end
+
+  private
+
+  def image_type
+    errors.add(:image, 'is missing!') unless image.attached?
+
+    errors.add(:image, 'needs to be a jpeg or png!') unless image.content_type.in?(%('image/jpeg image/png'))
   end
 end
