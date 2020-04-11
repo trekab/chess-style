@@ -20,13 +20,16 @@
             <%= link_to 'LOGOUT', logout_path, class: "nav-link", method: :delete %>
           <% else %>
             <%= link_to 'LOGIN', login_path, class: "nav-link" %>
+            <li class="nav-item">
+              <%= link_to 'REGISTER', sign_up_path, class: "nav-link" %>
+            </li>  
           <% end %>
         </li>
         <li class="nav-item">
-          <% if !logged_in? %>
-            <%= link_to 'REGISTER', sign_up_path, class: "nav-link" %>
+          <% if logged_in? && current_user.admin? %>
+            <span class="badge badge-success align-bottom mt-2">Admin</span>
           <% end %>
-        </li>       
+        </li>        
       </ul>
     </div>
     
