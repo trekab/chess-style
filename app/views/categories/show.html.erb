@@ -1,37 +1,46 @@
-<h1 class="category-title">
-	<%= @category.name %> Articles
-</h1>
+
 <div class="d-flex w-100 flex-wrap vh-100 align-content-start">
 <% @articles.each do |article| %>
-	<div class="d-flex w-25 pb-1">
+	<div class="d-flex w-50 pb-1">
 		<div class="w-50">
 			<%= image_tag article.image, class: "w-100 h-100" if article.image.attached? %>
 		</div>
-		<div class="w-50 bg-light">
-			<h5>
-				<%= article.title %>
-			</h5>
-			<div class="p-0">
-				<%= truncate(article.text, length: 20) %>
+		<div class="w-50 bg-light d-flex flex-column justify-content-between">
+			<div class="p-2">
+				<h4 class="category-title text-info">
+					<%= @category.name %>
+				</h4>
+				<h5>
+					<%= article.title %>
+				</h5>
+				<div class="p-0">
+					<%= truncate(article.text, length: 100) %>
+				</div>
 			</div>
-			<span class="badge badge-primary">
-				<a href="#" class="text-white">Read More</a>
-			</span>
-			<span class="badge badge-primary">
-				Author: <%= article.author.name %>
-			</span>
-			<span class="badge badge-warning">
-				<%= vote_or_unvote_btn(article) %>
-			</span>
-			<% if logged_in? && (current_user == article.author || current_user.admin?) %>
-				<span class="badge badge-warning">
-					<%= link_to 'Edit', edit_article_path(article) %>
-				</span>
-				<span class="badge badge-warning">
-					<%= link_to 'Delete', article_path(article), method: :delete,
-											data: { confirm: "Are you sure you want to delete the article?"} %>
-				</span>
-			<% end %>
+			<div>
+				<div class="pl-2">
+					<span class="badge badge-info">
+						Author: <%= article.author.name %>
+					</span>
+					<span class="badge badge-info">
+						<a href="#" class="text-white">Read More</a>
+					</span>	
+				</div>
+				<div class="pl-2">
+					<span class="badge badge-warning">
+						<%= vote_or_unvote_btn(article) %>
+					</span>
+					<% if logged_in? && (current_user == article.author || current_user.admin?) %>
+						<span class="badge badge-warning">
+							<%= link_to 'Edit', edit_article_path(article) %>
+						</span>
+						<span class="badge badge-warning">
+							<%= link_to 'Delete', article_path(article), method: :delete,
+													data: { confirm: "Are you sure you want to delete the article?"} %>
+						</span>
+					<% end %>
+				</div>	
+			</div>			
 		</div>	
 	</div>
 	

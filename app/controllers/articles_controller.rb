@@ -37,7 +37,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     flash[:danger] = 'Article was successfully deleted'
-    redirect_to root_path
+    redirect_back fallback_location: root_path
   end
 
   private
@@ -51,9 +51,9 @@ class ArticlesController < ApplicationController
   end
 
   def require_same_user
-    return unless current_user == @article.author && current_user.admin?
+    return if current_user == @article.author || current_user.admin?
 
     flash[:danger] = 'You can only edit or delete your own article'
-    redirect_to root_path
+    redirect_back fallback_location: root_path
   end
 end
