@@ -1,24 +1,61 @@
-# README
+# ChessStyle
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> ChessStyle is a blogging application where users can create amazing articles about chess.
 
-Things you may want to cover:
+![screenshot](./app_screenshot.png)
 
-* Ruby version
+Additional description about the project and its features.
 
-* System dependencies
+## Built With
 
-* Configuration
+- Ruby,
+- Ruby on Rails, Bootstrap
 
-* Database creation
+## Live Demo
 
-* Database initialization
+[Live Demo Link](https://livedemo.com)
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## Getting Started
 
-* Deployment instructions
+To get a local copy up and running follow these simple example steps.
+- git clone git@github.com:trekab/chess-style.git
 
-* ...
+Then you browse to the folder and exucute the following commands
+- cd chess-style
+- bundle install
+
+Then run the migrations
+- rails db:migrate
+
+And finally setup sample data for the app
+- rails db:setup
+
+Now, you can open the app in your text editor to check out the source code and run 'rails s' in the terminal to test the app locally.
+
+## Authors
+
+👤 **Treasure Kabareebe**
+
+- Github: [@trekab](https://github.com/trekab)
+- Twitter: [@TKabareebe](https://twitter.com/TKabareebe)
+- Linkedin: [Treasure Kabareebe](https://www.linkedin.com/in/treasure-kabareebe/)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- [Design idea](https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version) by [Nelson Sakwa on Behance](https://www.behance.net/sakwadesignstudio)
+
+## 📝 License
+
+This project is [MIT](lic.url) licensed.
+

@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <h3>Log in</h3>
+    <%= form_for(:session,  url: login_path) do |f| %>
+      <div class = "form-group">
+        <%= f.label :name, "Name" %>
+        <%= f.text_field :name, placeholder: "Enter username", class: 'form-control' %>
+      </div>
+      <%= f.button "Log in", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

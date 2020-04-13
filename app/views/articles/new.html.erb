@@ -1,0 +1,27 @@
+
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <h3>Create New Article</h3>
+    <%= form_for(@article) do |f| %>
+      <%= render 'shared/error_messages' %>
+      <div class = "form-group">
+        <%= f.label :title, "Title" %>
+        <%= f.text_field :title, placeholder: "Enter title of article", class: 'form-control' %>
+      </div>
+      <div class = "form-group">
+        <%= f.label :text, "Body" %>
+        <%= f.text_area :text, rows: 10, placeholder: "Enter article body", class: 'form-control' %>
+      </div>
+      <div class = "form-group">
+        <%= f.label :image %>
+        <%= f.file_field :image, placeholder: "Upload image", required: true, class: 'form-control' %>
+      </div>
+      <div class = "form-group">
+        <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+          <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text } %>
+        <% end %>
+      </div>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

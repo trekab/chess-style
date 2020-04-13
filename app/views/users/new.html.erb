@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <h3>Register</h3>
+    <%= form_for(@user,  url: sign_up_path) do |f| %>
+      <div class = "form-group">
+        <%= f.label :name, "Name" %>
+        <%= f.text_field :name, placeholder: "Enter username", class: 'form-control' %>
+      </div>
+      <%= f.button "Register", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

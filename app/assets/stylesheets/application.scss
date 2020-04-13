@@ -1,0 +1,52 @@
+@import "bootstrap";
+@import "font-awesome";
+
+body {
+	background: #d9b38c;
+	font-family: san-serif;
+	font-size: 16px;
+}
+.featured_title {
+	position: relative;
+	top: 90%;
+	left: 3%;
+	h5 {
+		color: #ff6600;
+	}
+}
+
+a:hover {
+	text-decoration: none;
+	color: #ff6600 !important;
+}
+
+.article-title {
+	position: relative;
+	top: 100px;
+	left: 5px;
+	p {
+		text-shadow: 2px 1px black;
+	}
+}
+
+footer {
+	height: 2.5rem;
+}
+
+.featured {
+	height: 70vh;
+	background-size: cover; 
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.categories {
+	width: 18rem;
+ 	background-size: cover; 
+ 	background-repeat: no-repeat;
+ 	background-position: center center;
+}
+
+.category-title {
+	text-align: center;
+}
