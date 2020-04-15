@@ -13,7 +13,9 @@ Additional description about the project and its features.
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://fierce-meadow-82426.herokuapp.com/)
+
+- Login as 'Admin' to view admin priviledges
 
 
 ## Getting Started
