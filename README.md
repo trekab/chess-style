@@ -24,14 +24,17 @@ To get a local copy up and running follow these simple example steps.
 - git clone git@github.com:trekab/chess-style.git
 
 Then you browse to the folder and exucute the following commands
-- cd chess-style
-- bundle install
+- `cd chess-style`
+- `bundle install`
 
 Then run the migrations
-- rails db:migrate
+- `rails db:migrate`
+
+To run tests
+- `rspec`
 
 And finally setup sample data for the app
-- rails db:setup
+- `rails db:setup`
 
 Now, you can open the app in your text editor to check out the source code and run 'rails s' in the terminal to test the app locally.
 
