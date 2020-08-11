@@ -38,8 +38,9 @@ And finally setup sample data for the app
 
 Now, you can open the app in your text editor to check out the source code and run 'rails s' in the terminal to test the app locally.
 
-Future features
+## Future features
 - Enable logging in with user email and password
+- Implement the front-end using React.js
 
 ## Authors
 
